@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../casstylestatement/simple-form.css">
+    <title>Application page</title>
+</head>
+<body>
+    <form>
+        <header class="headerContainer"><h1> HTML 5 Form Input Felids </h1></header>
+        <div>
+            <label for="text">text input type for name:</label>
+            <input type="text" id="text" name="text">
+        </div>
+        <div>
+            <label for="pwd">password input type:</label>
+            <input type="password" id="pwd" name="pwd">
+        </div>
+        <div>
+            <label for="email">email input type:</label>
+            <input type="email" id="email" name="email">
+        </div>
+        <div>
+            <label for="url">url input type:</label>
+            <input type="url" id="url" name="url">
+        </div>
+        <div>
+            <label for="number">number input type:</label>
+            <input type="number" name="number" id="number">
+            <error-output class="text-error" for="number"></error-output>
+        </div>
+        <div>
+            <label for="tel">tel input type:</label>
+            <input type="tel" name="tel" id="tel">
+        </div>
+        <div>
+            <label for="search">search input type:</label>
+            <input type="search" id="search" name="search">
+        </div>
+        <div class="nativeDateTimePicker">
+            <label for="party">choose a date and time:</label>
+            <input type="datetime-local" name="party" id="party">
+            <span class="validity"></span>
+        </div>
+        <div>
+            <label for="salary">choose your salary:</label>
+            <input type="range" name="salary" id="salary" min="300000" max="500000" step="100" value="400000">
+            <output class="salary-output" for="salary">400000</output>
+        </div>
+        <div>
+            <button>Submit</button>
+        </div>
+    </form>
+    <script>
+        const number=document.querySelector('#number');
+        const textError=document.querySelector('.text-error');
+        number.addEventListener('input',function(){
+            let nameRegex=RegExp('^[0-9]{10}$');
+            if(nameRegex.test(number.value))
+                textError.textContent="";
+                else
+                textError.textContent="number is invalid";
+        });
+        const salary=document.querySelector('#salary');
+        const output=document.querySelector('.salary-output');
+        output.textContent=salary.value;
+        salary.addEventListener('input',function(){
+            output.textContent=salary.value;
+        });
+    </script>
+</body>
+</html>
