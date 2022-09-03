@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap">
+    <link rel="stylesheet" href="../casstylestatement/emp-form.css">
+    <title>Employee payroll form</title>
+</head>
+<body>
+    <header class="header-content header">
+        <div class="logo-content">
+            <img src="../Assets/personlogo.jpg" alt="" width="2%">
+            <div>
+                <span class="emp-text">EMPLOYEE</span>
+                <span class="emp-text emp-payroll">PAYROLL</span>
+            </div>
+        </div>
+    </header>
+    <div class="form-content">
+        <form class="form" action="#" onsubmit="save();return false">
+        <div class="form-head">
+            Employee Payroll form
+        </div>
+        <div class="row-content"> 
+            <label class="label-text" for="name">Name</label>
+            <input class="input" type="text" name="name" id="name" placeholder="Your name.." required>
+        </div>
+    <div class="row-content">
+        <label class="label-text" for="profile">Profile image</label>
+        <div class="profile-radio-content">
+            <label>
+                <input type="radio" name="profile" id="profile1" value="../Assets/person1.jpg" required>
+                <img class="profile" id='image1' src="../Assets/person1.jpg" width="5%">
+            </label>
+            <label>
+                <input type="radio" name="profile" id="profile2" value="../Assets/person2.jpg" required>
+                <img class="profile" id="image2" src="../Assets/person2.jpg" width="5%">
+            </label>
+            <label>
+                <input type="radio" name="profile" id="profile3" value="../Assets/person3.jpg" required>
+                <img class="profile" id="image3" src="../Assets/person3.jpg" width="5%">
+            </label>
+            <label>
+                <input type="radio" name="profile" id="profile4" value="../Assets/person4.jpg" required>
+                <img class="profile" id="image4" src="../Assets/person4.jpg" width="5%">
+            </label>
+        </div>
+    </div>
+    <div class="row-content">
+        <label class="label-text" for="gender">Gender</label>
+        <div>
+            <input type="radio" name="gender" id="male" value="male">
+            <label class="text" for="male">Male</label>
+            <input type="radio" name="gender" id="female" value="female">
+            <label class="text" for="female">Female</label>
+        </div>
+    </div>
+    <div class="row-content">
+        <label class="label-text" for="department">Department</label>
+        <div>
+            <input class="checkbox" type="checkbox" name="hr" id="hr" value="HR">
+            <label class="text" for="hr">HR</label>
+            <input class="checkbox" type="checkbox" name="sales" id="sales" value="Sales">
+            <label class="text" for="sales">Sales</label>
+            <input class="checkbox" type="checkbox" name="finance" id="finance" value="Finance">
+            <label class="text" for="finance">Finance</label>
+            <input class="checkbox" type="checkbox" name="engineer" id="engineer" value="Engineer">
+            <label class="text" for="engineer">Engineer</label>
+            <input class="checkbox" type="checkbox" name="others" id="others" value="Others">
+            <label class="text" for="others">Others</label>
+        </div>
+    </div>
+    <div class="row-content">
+        <label class="label-text" for="salary">Choose your salary</label>
+        <input class="input" type="range" name="salary" id="salary" min="300000" max="500000" step="100" value="400000">
+        <output class="salary-output text" for="salary">400000</output>
+    </div>
+    </form>
+    </div>
+</body>
+</html>
