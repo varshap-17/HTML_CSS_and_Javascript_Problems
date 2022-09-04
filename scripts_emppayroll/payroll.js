@@ -50,6 +50,8 @@ class EmployeePayrollData{
         return this._startDate;
     }
     set startDate(startDate){
+        let now=new Date();
+        now.getDate();
         this._startDate=startDate;
     }
     //method
