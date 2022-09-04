@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap">
     <link rel="stylesheet" href="../casstylestatement/emp-form.css">
     <script defer src="../scripts_emppayroll/payroll.js"></script>
+    <script defer src="../CURD operation/payroll_form.js"></script>
+    <script src="../Homepage/site_properties.js"></script>
+    <script src="../Homepage/Utility.js"></script>
     <title>Employee payroll form</title>
 </head>
 <body>
@@ -80,7 +83,7 @@
     </div>
     <div class="row-content">
         <label class="label-text" for="startDate">Start Date</label>
-        <div>
+        <div id="date">
             <select name="Day" id="day">
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -136,13 +139,14 @@
                 <option value="2018">2018</option>
             </select>
         </div>
+        <error-output class="date-error" for="startDate"></error-output>
     </div>
     <div class="row-content">
         <label class="label-text" for="notes">Notes</label>
         <textarea name="Notes" id="notes" class="input" placeholder="" style="height: 100px;" cols="30" rows="10"></textarea>
     </div>
     <div class="buttonParent">
-        <a href="./home.html" class="resetButton button cancelButton">Cancel</a>
+        <a href="../Homepage/new_home.html" class="resetButton button cancelButton">Cancel</a>
         <div class="submit-reset">
             <button type="submit" class="button submitButton" id="submitButton">Submit</button>
             <button type="reset" class="resetButton button">Reset</button>
