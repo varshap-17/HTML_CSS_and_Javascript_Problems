@@ -51,12 +51,16 @@ class EmployeePayrollData{
     }
     set startDate(startDate){
         let now=new Date();
-        now.getDate();
+        if(startDate>now) 
+            throw 'Start Date is a Future Date!';
+        var diff=Math.abs(now.getTime()-startDate.getTime());
+        if(diff/(1000*60*60*24)>30)
+            throw 'Start Date is beyond 30 days!';
         this._startDate=startDate;
     }
     //method
     toString(){
-        const options={year:'numeric',month:'long',day:'numeric'};
+        const options={year:'numeric',month:'short',day:'numeric'};
         const empDate=!this.startDate?"undefined":this.startDate.toLocalDateString("en-US",options);
         return "id="+this.id + ", name='" + this.name + ", gender='"+this.gender + ", profilePic='"+this.profilePic + ", department='"+this.department+ ", salary="+this.salary+ ", startDate="+empDate+ ", note="+this.note;
     }
@@ -64,25 +68,35 @@ class EmployeePayrollData{
 //uc2
 window.addEventListener('DOMContentLoaded',(event)=>{
     const name=document.querySelector('#name');
-    const textError=document.querySelector('.text-error');
     name.addEventListener('input',function(){
         if(name.value.length==0){
-            textError.textContent="";
+            setTextValue('.text-error',"");
             return;
         }
         try{
-            (new EmployeePayrollData()).name=name.value;;
-            textError.textContent="";
+            (new EmployeePayrollData()).name=name.value;
+            setTextValue('.text-error',"");
         }catch(e){
-            textError.textContent=e;
+            setTextValue('.text-error',e);
         }
     });
-    const salary=document.querySelector('#salary');
-    const output=document.querySelector('.salary-output');
-    output.textContent=salary.value;
-    salary.addEventListener('input',function(){
-        output.textContent=salary.value;
+    const date=document.querySelector('#date');
+    date.addEventListener('input',function(){
+        const startDate=new Date(Date.parse(getInputValueById('#day')+" "+getInputValueById('#month')+" "+getInputValueById('#year')));
+        try{
+            (new EmployeePayrollData()).startDate=startDate;
+            setTextValue('.date-error',"");
+        }catch(e){
+            setTextValue('.date-error',e);
+        }
     });
+
+    const salary=document.querySelector('#salary');
+    setTextValue('.salary-output',salary.value);
+    salary.addEventListener('input',function(){
+    setTextValue('.salary-output',salary.value);
+    });
+    checkForUpdate();
 });
 //uc3
 const save=()=>{
